@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct SwiftUIGameApp: App {
+    
+    @StateObject var themeStore = ThemeStore(named: "default")
+    
     var body: some Scene {
         WindowGroup {
-            ContentView(changeToggle: false)
+            ThemeChooser()
+                .environmentObject(themeStore)
         }
     }
 }
